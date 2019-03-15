@@ -1,0 +1,5 @@
+dataset,positive_label_name,negative_label_name,labelled_items_count,positive_label_count,negative_label_count,scoring_mode,L1,L2,F1@R,TN@R,FP@R,FN@R,TP@R,RMS_error,median_abs_error
+IWSC.USEDAN.json,SL_consumers,SL_not_consumers,16,375,712,a,5,10,0.52,532,180,180,195,0.203993459,0.688375768
+IWSC.USEDAN.json,SL_suppliers,SL_not_suppliers,15,142,525,a,5,10,0.477192982,450,75,74,68,0.233688838,0.682419034
+IWSC.USEDAN.json,ES_consumers,ES_unrelated,38,114,194,a,5,10,0.554112554,141,53,50,64,0.164778117,0.553873437
+IWSC.USEDAN.json,ES_suppliers,ES_unrelated,46,90,259,a,5,10,0.349726776,198,61,58,32,0.176603547,0.572136316

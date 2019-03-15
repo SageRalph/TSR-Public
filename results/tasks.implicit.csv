@@ -1,0 +1,5 @@
+dataset,positive_label_name,labelled_items_count,positive_label_count,evaluation_repeat_count,scoring_mode,L1,L2,total_evaluations_count,hits@10,HR@10,hits@5,HR@5,hits@1,HR@1,median_label_positive_rank,mean_label_positive_rank
+IWSC.USEDAN.json,SL_consumers,17,376,10,a,5,10,3760,2826,0.751595745,1918,0.510106383,548,0.145744681,4,7.771010638
+IWSC.USEDAN.json,SL_suppliers,15,142,10,a,5,10,1420,941,0.662676056,771,0.542957746,213,0.15,4,14.02042254
+IWSC.USEDAN.json,ES_consumers,51,207,10,a,5,10,2070,458,0.221256039,247,0.119323671,38,0.018357488,36,43.00772947
+IWSC.USEDAN.json,ES_suppliers,48,92,10,a,5,10,920,181,0.19673913,119,0.129347826,51,0.055434783,32,47.74565217

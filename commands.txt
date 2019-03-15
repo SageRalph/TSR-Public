@@ -1,0 +1,54 @@
+
+
+# Explicit evaluation of performance for each task
+pipenv run python scripts/TSREvalExplicit.py -i datasets/IWSC.USEDAN.json -o results/tasks.explicit.csv -p SL_consumers -n SL_not_consumers -m a
+pipenv run python scripts/TSREvalExplicit.py -i datasets/IWSC.USEDAN.json -o results/tasks.explicit.csv -p SL_suppliers -n SL_not_suppliers -m a
+pipenv run python scripts/TSREvalExplicit.py -i datasets/IWSC.USEDAN.json -o results/tasks.explicit.csv -p ES_consumers -n ES_unrelated -m a
+pipenv run python scripts/TSREvalExplicit.py -i datasets/IWSC.USEDAN.json -o results/tasks.explicit.csv -p ES_suppliers -n ES_unrelated -m a
+
+# Implicit evaluation of performance for each task
+pipenv run python scripts/TSREvalImplicit.py -i datasets/IWSC.USEDAN.json -o results/tasks.implicit.csv -r 10 -p SL_consumers -m a
+pipenv run python scripts/TSREvalImplicit.py -i datasets/IWSC.USEDAN.json -o results/tasks.implicit.csv -r 10 -p SL_suppliers -m a
+pipenv run python scripts/TSREvalImplicit.py -i datasets/IWSC.USEDAN.json -o results/tasks.implicit.csv -r 10 -p ES_consumers -m a
+pipenv run python scripts/TSREvalImplicit.py -i datasets/IWSC.USEDAN.json -o results/tasks.implicit.csv -r 10 -p ES_suppliers -m a
+
+
+# Explicit evaluation of performance of each scoring algorithm
+pipenv run python scripts/TSREvalExplicit.py -i datasets/IWSC.USEDAN.json -o results/algorithms.explicit.csv -p SL_consumers -n SL_not_consumers -m a
+pipenv run python scripts/TSREvalExplicit.py -i datasets/IWSC.USEDAN.json -o results/algorithms.explicit.csv -p SL_consumers -n SL_not_consumers -m a*
+pipenv run python scripts/TSREvalExplicit.py -i datasets/IWSC.USEDAN.json -o results/algorithms.explicit.csv -p SL_consumers -n SL_not_consumers -m b
+pipenv run python scripts/TSREvalExplicit.py -i datasets/IWSC.USEDAN.json -o results/algorithms.explicit.csv -p SL_consumers -n SL_not_consumers -m c
+pipenv run python scripts/TSREvalExplicit.py -i datasets/IWSC.USEDAN.json -o results/algorithms.explicit.csv -p SL_consumers -n SL_not_consumers -m d
+pipenv run python scripts/TSREvalExplicit.py -i datasets/IWSC.USEDAN.json -o results/algorithms.explicit.csv -p SL_consumers -n SL_not_consumers -m e
+pipenv run python scripts/TSREvalExplicit.py -i datasets/IWSC.USEDAN.json -o results/algorithms.explicit.csv -p SL_consumers -n SL_not_consumers -m f
+pipenv run python scripts/TSREvalExplicit.py -i datasets/IWSC.USEDAN.json -o results/algorithms.explicit.csv -p SL_consumers -n SL_not_consumers -m g
+pipenv run python scripts/TSREvalExplicit.py -i datasets/IWSC.USEDAN.json -o results/algorithms.explicit.csv -p SL_consumers -n SL_not_consumers -m h
+pipenv run python scripts/TSREvalExplicit.py -i datasets/IWSC.USEDAN.json -o results/algorithms.explicit.csv -p SL_consumers -n SL_not_consumers -m i
+pipenv run python scripts/TSREvalExplicit.py -i datasets/IWSC.USEDAN.json -o results/algorithms.explicit.csv -p SL_consumers -n SL_not_consumers -m j
+pipenv run python scripts/TSREvalExplicit.py -i datasets/IWSC.USEDAN.json -o results/algorithms.explicit.csv -p SL_consumers -n SL_not_consumers -m k
+pipenv run python scripts/TSREvalExplicit.py -i datasets/IWSC.USEDAN.json -o results/algorithms.explicit.csv -p SL_consumers -n SL_not_consumers -m l
+pipenv run python scripts/TSREvalExplicit.py -i datasets/IWSC.USEDAN.json -o results/algorithms.explicit.csv -p SL_consumers -n SL_not_consumers -m m
+pipenv run python scripts/TSREvalExplicit.py -i datasets/IWSC.USEDAN.json -o results/algorithms.explicit.csv -p SL_consumers -n SL_not_consumers -m n
+pipenv run python scripts/TSREvalExplicit.py -i datasets/IWSC.USEDAN.json -o results/algorithms.explicit.csv -p SL_consumers -n SL_not_consumers -m o
+pipenv run python scripts/TSREvalExplicit.py -i datasets/IWSC.USEDAN.json -o results/algorithms.explicit.csv -p SL_consumers -n SL_not_consumers -m p
+pipenv run python scripts/TSREvalExplicit.py -i datasets/IWSC.USEDAN.json -o results/algorithms.explicit.csv -p SL_consumers -n SL_not_consumers -m q
+
+# Implicit evaluation of performance of each scoring algorithm
+# Note: Implicit evaluation of TSR-a* is equivalent to TSR-a as range fitting does not alter result ordering
+pipenv run python scripts/TSREvalImplicit.py -i datasets/IWSC.USEDAN.json -o results/algorithms.implicit.csv -r 10 -p SL_consumers -m a
+pipenv run python scripts/TSREvalImplicit.py -i datasets/IWSC.USEDAN.json -o results/algorithms.implicit.csv -r 10 -p SL_consumers -m b
+pipenv run python scripts/TSREvalImplicit.py -i datasets/IWSC.USEDAN.json -o results/algorithms.implicit.csv -r 10 -p SL_consumers -m c
+pipenv run python scripts/TSREvalImplicit.py -i datasets/IWSC.USEDAN.json -o results/algorithms.implicit.csv -r 10 -p SL_consumers -m d
+pipenv run python scripts/TSREvalImplicit.py -i datasets/IWSC.USEDAN.json -o results/algorithms.implicit.csv -r 10 -p SL_consumers -m e
+pipenv run python scripts/TSREvalImplicit.py -i datasets/IWSC.USEDAN.json -o results/algorithms.implicit.csv -r 10 -p SL_consumers -m f
+pipenv run python scripts/TSREvalImplicit.py -i datasets/IWSC.USEDAN.json -o results/algorithms.implicit.csv -r 10 -p SL_consumers -m g
+pipenv run python scripts/TSREvalImplicit.py -i datasets/IWSC.USEDAN.json -o results/algorithms.implicit.csv -r 10 -p SL_consumers -m h
+pipenv run python scripts/TSREvalImplicit.py -i datasets/IWSC.USEDAN.json -o results/algorithms.implicit.csv -r 10 -p SL_consumers -m i
+pipenv run python scripts/TSREvalImplicit.py -i datasets/IWSC.USEDAN.json -o results/algorithms.implicit.csv -r 10 -p SL_consumers -m j
+pipenv run python scripts/TSREvalImplicit.py -i datasets/IWSC.USEDAN.json -o results/algorithms.implicit.csv -r 10 -p SL_consumers -m k
+pipenv run python scripts/TSREvalImplicit.py -i datasets/IWSC.USEDAN.json -o results/algorithms.implicit.csv -r 10 -p SL_consumers -m l
+pipenv run python scripts/TSREvalImplicit.py -i datasets/IWSC.USEDAN.json -o results/algorithms.implicit.csv -r 10 -p SL_consumers -m m
+pipenv run python scripts/TSREvalImplicit.py -i datasets/IWSC.USEDAN.json -o results/algorithms.implicit.csv -r 10 -p SL_consumers -m n
+pipenv run python scripts/TSREvalImplicit.py -i datasets/IWSC.USEDAN.json -o results/algorithms.implicit.csv -r 10 -p SL_consumers -m o
+pipenv run python scripts/TSREvalImplicit.py -i datasets/IWSC.USEDAN.json -o results/algorithms.implicit.csv -r 10 -p SL_consumers -m p
+pipenv run python scripts/TSREvalImplicit.py -i datasets/IWSC.USEDAN.json -o results/algorithms.implicit.csv -r 10 -p SL_consumers -m q
