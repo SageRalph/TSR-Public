@@ -61,9 +61,9 @@ All results provided use the dataset `datasets/IWSC.USEDAN.json`.
 
 `results/tasks.implicit.csv` contains the results of evaluation of TSR-a on all IWSC tasks using `scripts/TSREvalImplicit.py`.
 
-`results/algorithms.explicit.csv` contains the results of evaluation of all TSR scoring algorithms on the IWSC SL_consumers task using `scripts/TSREvalExplicit.py`.
+`results/algorithms.explicit.csv` contains the results of evaluation of all TSR scoring algorithms on all IWSC tasks using `scripts/TSREvalExplicit.py`.
 
-`results/algorithms.explicit.csv` contains the results of evaluation of all TSR scoring algorithms on the IWSC SL_consumers task using `scripts/TSREvalImplicit.py`.
+`results/algorithms.explicit.csv` contains the results of evaluation of all TSR scoring algorithms on all IWSC tasks using `scripts/TSREvalImplicit.py`.
 
 
 # Scripts
