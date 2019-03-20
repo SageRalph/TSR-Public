@@ -61,7 +61,7 @@ def main():
     print('\n' + r['text'])
 
     if outPath:
-        util.writeCSV(outPath, [r], ['text', 'GT', 'PR', 'P@R', 'R@R'])
+        util.writeCSV(outPath, [r], ['text', 'P@R', 'R@R'])
 
 
 def evaluateItems(labelled, items, relation_pos, relation_neg, mode, dsname):
@@ -72,24 +72,18 @@ def evaluateItems(labelled, items, relation_pos, relation_neg, mode, dsname):
     L1 = 5
     L2 = 10
 
-    all_scores = []
-    all_GT = []
-    all_PR = []
-    all_ranks_pos = []
-    all_ranks_neg = []
+    all_scores = [] # Predicted scores
+    all_GT = [] # Ground Truth labels (0 or 1)
+    all_PR = [] # Predicted labels (0 or 1)
 
     for selected in range(0, len(labelled)):
 
         query = labelled[selected]
 
-        # Only rank items which the query has a positive or negative label for the query
-        allowed_target_ids = []
-        if relation_pos in query:
-            allowed_target_ids += query[relation_pos]
-        if relation_neg in query:
-            allowed_target_ids += query[relation_neg]
-        if len(allowed_target_ids) == 0:
-            continue
+        # Only rank items which the query has a known label for
+        tests_pos = query[relation_pos]
+        tests_neg = query[relation_neg]
+        allowed_target_ids = tests_pos + tests_neg
 
         # Remove the query from the dataset
         safe_items = items.copy()
@@ -110,15 +104,8 @@ def evaluateItems(labelled, items, relation_pos, relation_neg, mode, dsname):
             mode=mode
         )
 
-        # Determine the rankings of each of the labels
-        tests_pos = query[relation_pos] if relation_pos in query else []
-        tests_neg = query[relation_neg] if relation_neg in query else []
-        GT = []
-        scores = []
-        ranks_pos = []
-        ranks_neg = []
-        threshold = len(tests_pos)  # R-Precision
-        worstRank = len(allowed_target_ids) - 1
+        threshold = len(tests_pos)  # Rank threshold for R-Precision
+        worstRank = len(allowed_target_ids) - 1 # Default if item not in results
 
         ranked_ids = [item['target_id'] for item in ranked]
 
@@ -126,48 +113,31 @@ def evaluateItems(labelled, items, relation_pos, relation_neg, mode, dsname):
         for id in tests_pos:
 
             # Add to Ground Truth
-            GT.append(1)
             all_GT.append(1)
 
+            # Record label based on rank threshold
             rank = ranked_ids.index(id) if id in ranked_ids else worstRank
-
-            # Record rank
-            ranks_pos.append(rank)
-            all_ranks_pos.append(rank)
-
-            # Record label based on threshold
             all_PR.append(1 if rank < threshold else 0)
 
             # Record score
             score = ranked[rank]['score'] if id in ranked_ids else 0
-            scores.append(score)
             all_scores.append(score)
 
         # Check ranks of negative labels
         for id in tests_neg:
 
             # Add to Ground Truth
-            GT.append(0)
             all_GT.append(0)
 
+            # Record label based on rank threshold
             rank = ranked_ids.index(id) if id in ranked_ids else worstRank
-
-            # Record rank
-            ranks_neg.append(rank)
-            all_ranks_neg.append(rank)
-
-            # Record label based on threshold
             all_PR.append(1 if rank < threshold else 0)
 
             # Record score
             score = ranked[rank]['score'] if id in ranked_ids else 0
-            scores.append(score)
             all_scores.append(score)
 
-        print(f'\
-QUERY: {str(safe_query["id"]).ljust(5)} \
-MEAN POSITIVE RANK: {util.mean(ranks_pos):1.1f}   \
-MEAN NEGATIVE RANK: {util.mean(ranks_neg):1.1f}')
+        print(f'EVALUATED QUERY: {str(safe_query["id"]).ljust(5)}')
 
     np.set_printoptions(precision=4)
 
@@ -177,10 +147,8 @@ MEAN NEGATIVE RANK: {util.mean(ranks_neg):1.1f}')
         'positive_label_name': relation_pos,
         'negative_label_name': relation_neg,
         'labelled_items_count': len(labelled),
-        'positive_label_count': len(all_ranks_pos),
-        'negative_label_count': len(all_ranks_neg),
-        'GT': all_GT,
-        'PR': all_PR,
+        'positive_label_count': all_GT.count(1),
+        'negative_label_count': all_GT.count(0),
         'scoring_mode': mode,
         'L1': L1,
         'L2': L2
