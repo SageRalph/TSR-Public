@@ -1,3 +1,8 @@
+# Individual item querying
+pipenv run python scripts/TSRProvenance.py -i datasets/IWSC.USEDAN.json -o results -p SL_consumers -m a
+pipenv run python scripts/TSRProvenance.py -i datasets/IWSC.USEDAN.json -o results -p SL_consumers -m e
+
+
 
 
 # Explicit evaluation of TSR-a performance on each IWSC task

@@ -53,7 +53,7 @@ If publishing results using this dataset please reference the original paper "Re
 
 # Results files
 
-This repository contains all the data and code nessesary to replicate our results.  
+This repository contains all the data and code necessary to replicate our results.  
 We provide the full results presented in the paper "Recommendations from Cold Starts in Big Data" in the `results` directory.  
 All results provided use the dataset `datasets/IWSC.USEDAN.json`.
 
@@ -64,6 +64,10 @@ All results provided use the dataset `datasets/IWSC.USEDAN.json`.
 `results/algorithms.explicit.csv` contains the results of evaluation of all TSR scoring algorithms on all IWSC tasks using `scripts/TSREvalExplicit.py`.
 
 `results/algorithms.explicit.csv` contains the results of evaluation of all TSR scoring algorithms on all IWSC tasks using `scripts/TSREvalImplicit.py`.
+
+`results/Resmar Marine Safety.SL_consumers.TSR-a.txt` contains the full results and provenance for a TSR-a SL_consumers query with Resmar Marine Safety (id 545) as the query using `scripts/TSRProvenance.py`.
+
+`results/Resmar Marine Safety.SL_consumers.TSR-e.txt` contains the full results and provenance for a TSR-e SL_consumers query with Resmar Marine Safety (id 545) as the query using `scripts/TSRProvenance.py`.
 
 
 # Scripts
@@ -88,6 +92,9 @@ A greater repeat count will give more consistent results.
 This script can be time and resource intensive if the repeat count is high.  
 This script is optimised for multi-core CPUs.
 
+### TSRProvenance.py
+This script uses TSRCore to rank targets for a chosen query item and outputs 
+a detailed provenance file showing the scores, routes, and descriptions for all targets.
 
 ### TSRCore.py
 This script contains an implementation of the TSR inference algorithm.
