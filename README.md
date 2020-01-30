@@ -4,7 +4,47 @@ This repository includes all the data and code necessary to replicate the result
 This includes the full Isle of Wight Supply Chain (IWSC) dataset, a full implementation of the Transitive Semantic Relationships (TSR) inference algorithm, and scripts for automated evaluation using both explicit and implicit feedback. Please refer to the original paper for detailed information about the IWSC dataset and TSR approach.
 
 ## Citations
-For all derivative works using the IWSC dataset or TSR algorithm, please cite the original paper "Recommendations from Cold Starts in Big Data".
+For all derivative works using the IWSC dataset or TSR algorithm, please cite the paper "Recommendations from Cold Starts in Big Data".
+
+Ralph, D., Li, Y., Wills, G. et al. Recommendations from cold starts in big data. Computing (2020). https://doi.org/10.1007/s00607-020-00792-y
+
+<details>
+<summary>BibTeX</summary>
+<pre>
+@Article{Ralph2020,
+author={Ralph, David
+and Li, Yunjia
+and Wills, Gary
+and Green, Nicolas G.},
+title={Recommendations from cold starts in big data},
+journal={Computing},
+year={2020},
+issn={1436-5057},
+doi={10.1007/s00607-020-00792-y},
+url={https://doi.org/10.1007/s00607-020-00792-y}
+}
+</pre>
+</details>
+
+<details>
+<summary>RIS</summary>
+<pre>
+TY  - JOUR
+AU  - Ralph, David
+AU  - Li, Yunjia
+AU  - Wills, Gary
+AU  - Green, Nicolas G.
+PY  - 2020
+DA  - 2020/01/29
+TI  - Recommendations from cold starts in big data
+JO  - Computing
+SN  - 1436-5057
+UR  - https://doi.org/10.1007/s00607-020-00792-y
+DO  - 10.1007/s00607-020-00792-y
+ID  - Ralph2020
+ER  - 
+</pre>
+</details>
 
 ## Requirements ##
 
